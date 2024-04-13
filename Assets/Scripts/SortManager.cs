@@ -16,7 +16,7 @@ public class SortManager : MonoBehaviour
     {
         sortingValues = new ValueVisualBehavior[howManyValues];
 
-        Time.timeScale = 1f;
+        Time.timeScale = 0.01f;
 
         float totalWidth = howManyValues * 0.03f;
 
@@ -34,7 +34,8 @@ public class SortManager : MonoBehaviour
             sortingValues[i].visualiserValue = Random.Range(1, 101);
         }
 
-        gameObject.AddComponent<SelectionSort>().Init(sortingValues);
+        //gameObject.AddComponent<SelectionSort>().Init(sortingValues);
+        gameObject.AddComponent<InsertionSort>().Init(sortingValues);
     }
 
     // Update is called once per frame

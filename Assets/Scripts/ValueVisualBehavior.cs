@@ -16,6 +16,7 @@ public class ValueVisualBehavior : MonoBehaviour
 
     public void ChangeColor(Color color)
     {
+        StopAllCoroutines();
         _renderer.color = color;
     }
 
