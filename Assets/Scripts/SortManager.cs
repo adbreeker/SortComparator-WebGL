@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SortManager : MonoBehaviour
 {
@@ -10,13 +11,13 @@ public class SortManager : MonoBehaviour
     public static ValueVisualBehavior[] sortingValues;
     public GameObject valueVisualPrefab;
 
+    [SerializeField] Slider playSpeedSlider;
+
     float _startX;
 
     void Start()
     {
         sortingValues = new ValueVisualBehavior[howManyValues];
-
-        Time.timeScale = 0.01f;
 
         float totalWidth = howManyValues * 0.03f;
 
@@ -48,5 +49,14 @@ public class SortManager : MonoBehaviour
             sortingValues[i].gameObject.transform.localPosition = new Vector3(
                 xPos, sortingValues[i].gameObject.transform.localPosition.y, sortingValues[i].gameObject.transform.localPosition.z);
         }
+
+        SetPlaySpeed();
+    }
+
+    void SetPlaySpeed()
+    {
+        if(playSpeedSlider.value == 0) { Time.timeScale = 1.0f; }
+        if(playSpeedSlider.value > 0) { Time.timeScale = 1.0f + playSpeedSlider.value; }
+        if(playSpeedSlider.value < 0) { Time.timeScale = 1.0f + (playSpeedSlider.value * 0.01f); }
     }
 }
