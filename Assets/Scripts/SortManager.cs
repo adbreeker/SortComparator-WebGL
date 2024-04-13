@@ -31,7 +31,7 @@ public class SortManager : MonoBehaviour
 
             // Spawn line prefab at the calculated position
             sortingValues[i] = Instantiate(valueVisualPrefab, new Vector3(xPos, -5f, 0f), Quaternion.identity).GetComponent<ValueVisualBehavior>();
-            sortingValues[i].visualiserValue = Random.Range(1, 100);
+            sortingValues[i].visualiserValue = Random.Range(1, 101);
         }
 
         gameObject.AddComponent<SelectionSort>().Init(sortingValues);
