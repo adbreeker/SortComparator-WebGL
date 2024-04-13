@@ -22,27 +22,46 @@ public class SelectionSort : MonoBehaviour
 
         for(int i=0; i < _valueCount - 1; i++) 
         {
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForFixedUpdate();
             timer += Time.deltaTime;
             Debug.Log(timer);
             int minIndex = i;
 
+            _toSort[i].ChangeColor(Color.red);
+
             for(int j=i+1; j < _valueCount; j++)
             {
-                if (_toSort[j].visualiserValue <= _toSort[minIndex].visualiserValue)
+                yield return new WaitForFixedUpdate();
+
+                _toSort[j].ChangeColor(Color.red, 0);
+
+                if (_toSort[j].visualiserValue < _toSort[minIndex].visualiserValue)
                 {
                     minIndex = j;
                 }
             }
 
-            if (i != minIndex) { SwapTwoElementsByIndex(i, minIndex); }
+            yield return new WaitForFixedUpdate();
+            SwapTwoElementsByIndex(i, minIndex);
         }
+
+        _toSort[_valueCount-1].ChangeColor(Color.green);
     }
 
     void SwapTwoElementsByIndex(int a, int b)
     {
-        ValueVisualBehavior temp = _toSort[a];
-        _toSort[a] = _toSort[b];
-        _toSort[b] = temp;
+        if(a != b)
+        {
+            ValueVisualBehavior temp = _toSort[a];
+            _toSort[a] = _toSort[b];
+            _toSort[b] = temp;
+
+            _toSort[a].ChangeColor(Color.green);
+            _toSort[b].ChangeColor(Color.white);
+        }
+        else
+        {
+            _toSort[a].ChangeColor(Color.green);
+        }
     }
 }

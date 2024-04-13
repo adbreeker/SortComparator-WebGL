@@ -16,6 +16,8 @@ public class SortManager : MonoBehaviour
     {
         sortingValues = new ValueVisualBehavior[howManyValues];
 
+        Time.timeScale = 1f;
+
         float totalWidth = howManyValues * 0.03f;
 
         // Calculate starting position for the first line
