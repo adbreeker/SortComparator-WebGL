@@ -13,7 +13,7 @@ public class SelectionSort : SortingAlgorithm
         {
             yield return new WaitForFixedUpdate();
             timer += Time.deltaTime;
-            Debug.Log(timer);
+
             int minIndex = i;
 
             _toSort[i].ChangeColor(Color.red);
@@ -41,6 +41,8 @@ public class SelectionSort : SortingAlgorithm
         }
 
         _toSort[_valueCount - 1].ChangeColor(Color.green);
+
+        _sortManager.SortFinished(_sortIndex);
     }
 
 }

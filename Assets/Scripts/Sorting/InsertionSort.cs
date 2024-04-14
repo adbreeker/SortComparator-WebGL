@@ -15,7 +15,6 @@ public class InsertionSort : SortingAlgorithm
         {
             yield return new WaitForFixedUpdate();
             timer += Time.deltaTime;
-            Debug.Log(timer);
 
             j = i;
 
@@ -24,7 +23,6 @@ public class InsertionSort : SortingAlgorithm
                 yield return new WaitForFixedUpdate();
 
                 _toSort[j].ChangeColor(Color.red, 0);
-                _toSort[j - 1].ChangeColor(Color.red, 0);
 
                 SwapTwoElementsByIndex(j - 1, j);
                 if (i == _valueCount - 1) { _toSort[j].ChangeColor(Color.green); }
@@ -38,6 +36,8 @@ public class InsertionSort : SortingAlgorithm
             _toSort[j].ChangeColor(Color.green);
             j--;
         }
+
+        _sortManager.SortFinished(_sortIndex);
     }
   
 }
