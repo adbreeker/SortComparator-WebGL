@@ -7,12 +7,9 @@ public class SelectionSort : SortingAlgorithm
 {
     protected override IEnumerator SortingCoroutine()
     {
-        float timer = 0;
-
         for (int i = 0; i < _valueCount - 1; i++)
         {
             yield return new WaitForFixedUpdate();
-            timer += Time.deltaTime;
 
             int minIndex = i;
 
@@ -24,7 +21,7 @@ public class SelectionSort : SortingAlgorithm
 
                 _toSort[j].ChangeColor(Color.red, 0);
 
-                if (_toSort[j].visualiserValue < _toSort[minIndex].visualiserValue)
+                if (_toSort[j] < _toSort[minIndex])
                 {
                     minIndex = j;
                 }

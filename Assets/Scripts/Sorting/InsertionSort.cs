@@ -7,18 +7,15 @@ public class InsertionSort : SortingAlgorithm
 
     protected override IEnumerator SortingCoroutine()
     {
-        float timer = 0;
-
         int j=_valueCount-1;
 
         for (int i = 1; i < _valueCount; i++)
         {
             yield return new WaitForFixedUpdate();
-            timer += Time.deltaTime;
 
             j = i;
 
-            while(j > 0 && _toSort[j-1].visualiserValue > _toSort[j].visualiserValue)
+            while(j > 0 && _toSort[j-1] > _toSort[j])
             {
                 yield return new WaitForFixedUpdate();
 
@@ -30,12 +27,7 @@ public class InsertionSort : SortingAlgorithm
             }
         }
 
-        while(j >= 0)
-        {
-            yield return new WaitForFixedUpdate();
-            _toSort[j].ChangeColor(Color.green);
-            j--;
-        }
+        ColorArea(j, 0, Color.green);
 
         _sortManager.SortFinished(_sortIndex);
     }

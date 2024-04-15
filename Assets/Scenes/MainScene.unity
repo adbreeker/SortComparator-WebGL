@@ -546,7 +546,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: -70}
+  m_AnchoredPosition: {x: -52, y: -70}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &406348733
@@ -1308,8 +1308,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -99.99988, y: -30}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -150, y: -30}
+  m_SizeDelta: {x: 250, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &717352612
 MonoBehaviour:
@@ -1364,6 +1364,10 @@ MonoBehaviour:
     - m_Text: Selection Sort
       m_Image: {fileID: 0}
     - m_Text: Insertion Sort
+      m_Image: {fileID: 0}
+    - m_Text: Cocktail Shaker Sort
+      m_Image: {fileID: 0}
+    - m_Text: Cocktail Shaker Sort Optimized
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2776,6 +2780,8 @@ GameObject:
   - component: {fileID: 1404460035}
   - component: {fileID: 1404460034}
   - component: {fileID: 1404460033}
+  - component: {fileID: 1404460037}
+  - component: {fileID: 1404460036}
   m_Layer: 0
   m_Name: SortManager
   m_TagString: Untagged
@@ -2858,6 +2864,32 @@ MonoBehaviour:
   sortingAlgorithms:
   - {fileID: 1404460034}
   - {fileID: 1404460033}
+  - {fileID: 1404460037}
+  - {fileID: 1404460036}
+--- !u!114 &1404460036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404460030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f979c59c309258a418945068a1834cf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1404460037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404460030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d677faa891981d747b5f7726c40f6e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1439729716
 GameObject:
   m_ObjectHideFlags: 0
@@ -3525,8 +3557,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 1267731265}
   m_HandleRect: {fileID: 737364695}
   m_Direction: 0
-  m_MinValue: -199
-  m_MaxValue: 199
+  m_MinValue: -999
+  m_MaxValue: 399
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
@@ -4248,8 +4280,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -99.99991, y: -70}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -150, y: -70}
+  m_SizeDelta: {x: 250, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2120598143
 MonoBehaviour:
@@ -4304,6 +4336,10 @@ MonoBehaviour:
     - m_Text: Selection Sort
       m_Image: {fileID: 0}
     - m_Text: Insertion Sort
+      m_Image: {fileID: 0}
+    - m_Text: Cocktail Shaker Sort
+      m_Image: {fileID: 0}
+    - m_Text: Cocktail Shaker Sort Optimized
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:

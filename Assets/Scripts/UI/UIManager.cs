@@ -29,8 +29,8 @@ public class UIManager : MonoBehaviour
     public void SetPlaySpeed()
     {
         if (_playSpeedSlider.value == 0) { Time.timeScale = 1.0f; }
-        if (_playSpeedSlider.value > 0) { Time.timeScale = 1.0f + _playSpeedSlider.value * 0.1f; }
-        if (_playSpeedSlider.value < 0) { Time.timeScale = 1.0f + (_playSpeedSlider.value * 0.005f); }
+        if (_playSpeedSlider.value > 0) { Time.timeScale = 1.0f + _playSpeedSlider.value * 0.05f; }
+        if (_playSpeedSlider.value < 0) { Time.timeScale = 1.0f + (_playSpeedSlider.value * 0.001f); }
     }
 
     public void SetSortsDropdownsOptions(List<string> sortNames)

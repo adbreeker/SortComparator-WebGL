@@ -14,6 +14,16 @@ public class ValueVisualBehavior : MonoBehaviour
         transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + (visualiserValue / 20f), transform.localPosition.z);
     }
 
+    public static bool operator <(ValueVisualBehavior a, ValueVisualBehavior b)
+    {
+        return a.visualiserValue < b.visualiserValue;
+    }
+
+    public static bool operator >(ValueVisualBehavior a, ValueVisualBehavior b)
+    {
+        return a.visualiserValue > b.visualiserValue;
+    }
+
     public void ChangeColor(Color color)
     {
         StopAllCoroutines();
