@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ValueVisualBehavior : MonoBehaviour
+public class ValueVisualiser : MonoBehaviour
 {
     public int visualiserValue = 1;
 
@@ -14,12 +14,12 @@ public class ValueVisualBehavior : MonoBehaviour
         transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + (visualiserValue / 20f), transform.localPosition.z);
     }
 
-    public static bool operator <(ValueVisualBehavior a, ValueVisualBehavior b)
+    public static bool operator <(ValueVisualiser a, ValueVisualiser b)
     {
         return a.visualiserValue < b.visualiserValue;
     }
 
-    public static bool operator >(ValueVisualBehavior a, ValueVisualBehavior b)
+    public static bool operator >(ValueVisualiser a, ValueVisualiser b)
     {
         return a.visualiserValue > b.visualiserValue;
     }

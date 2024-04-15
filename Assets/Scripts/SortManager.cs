@@ -10,8 +10,8 @@ public class SortManager : MonoBehaviour
     [Header("Sorting values visualisation:")]
     public int howManyValues = 500;
     public GameObject valueVisualPrefab;
-    public ValueVisualBehavior[] sortingValues1;
-    public ValueVisualBehavior[] sortingValues2;
+    public ValueVisualiser[] sortingValues1;
+    public ValueVisualiser[] sortingValues2;
     public Transform valuesHolderSolo;
     public Transform valuesHolderCompare1;
     public Transform valuesHolderCompare2;
@@ -79,12 +79,12 @@ public class SortManager : MonoBehaviour
 
         if(!isComparingSorts)
         {
-            sortingValues1 = new ValueVisualBehavior[howManyValues];
+            sortingValues1 = new ValueVisualiser[howManyValues];
             for (int i = 0; i < howManyValues; i++)
             {
                 float xPos = _startX + (i * 0.03f);
 
-                sortingValues1[i] = Instantiate(valueVisualPrefab, new Vector3(xPos, -5f, 0f), Quaternion.identity, valuesHolderSolo).GetComponent<ValueVisualBehavior>();
+                sortingValues1[i] = Instantiate(valueVisualPrefab, new Vector3(xPos, -5f, 0f), Quaternion.identity, valuesHolderSolo).GetComponent<ValueVisualiser>();
                 sortingValues1[i].visualiserValue = Random.Range(1, 101);
             }
 
@@ -92,15 +92,15 @@ public class SortManager : MonoBehaviour
         }
         else
         {
-            sortingValues1 = new ValueVisualBehavior[howManyValues];
-            sortingValues2 = new ValueVisualBehavior[howManyValues];
+            sortingValues1 = new ValueVisualiser[howManyValues];
+            sortingValues2 = new ValueVisualiser[howManyValues];
             for (int i = 0; i < howManyValues; i++)
             {
                 float xPos = _startX + (i * 0.03f);
 
-                sortingValues1[i] = Instantiate(valueVisualPrefab, new Vector3(xPos, 0f, 0f), Quaternion.identity, valuesHolderCompare1).GetComponent<ValueVisualBehavior>();
+                sortingValues1[i] = Instantiate(valueVisualPrefab, new Vector3(xPos, 0f, 0f), Quaternion.identity, valuesHolderCompare1).GetComponent<ValueVisualiser>();
                 sortingValues1[i].visualiserValue = Random.Range(1, 101);
-                sortingValues2[i] = Instantiate(valueVisualPrefab, new Vector3(xPos, -5f, 0f), Quaternion.identity, valuesHolderCompare2).GetComponent<ValueVisualBehavior>();
+                sortingValues2[i] = Instantiate(valueVisualPrefab, new Vector3(xPos, -5f, 0f), Quaternion.identity, valuesHolderCompare2).GetComponent<ValueVisualiser>();
                 sortingValues2[i].visualiserValue = sortingValues1[i].visualiserValue;
             }
             _additionalSortingComponent = (SortingAlgorithm)gameObject.AddComponent(_sortsList.sortingAlgorithms[choosenSortTypes[1]].GetType());
@@ -113,19 +113,19 @@ public class SortManager : MonoBehaviour
     {
         if (sortingValues1.Length > 0)
         {
-            foreach (ValueVisualBehavior vvb in sortingValues1)
+            foreach (ValueVisualiser vv in sortingValues1)
             {
-                Destroy(vvb.gameObject);
+                Destroy(vv.gameObject);
             }
-            sortingValues1 = new ValueVisualBehavior[0];
+            sortingValues1 = new ValueVisualiser[0];
         }
         if (sortingValues2.Length > 0)
         {
-            foreach (ValueVisualBehavior vvb in sortingValues2)
+            foreach (ValueVisualiser vv in sortingValues2)
             {
-                Destroy(vvb.gameObject);
+                Destroy(vv.gameObject);
             }
-            sortingValues2 = new ValueVisualBehavior[0];
+            sortingValues2 = new ValueVisualiser[0];
         }
     }
 

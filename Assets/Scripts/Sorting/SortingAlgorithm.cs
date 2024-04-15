@@ -7,10 +7,10 @@ public class SortingAlgorithm : MonoBehaviour
     protected SortManager _sortManager;
     protected int _sortIndex = 1;
 
-    protected ValueVisualBehavior[] _toSort;
+    protected ValueVisualiser[] _toSort;
     protected int _valueCount;
 
-    public void Init(SortManager sortManager, int sortIndex, ValueVisualBehavior[] valuesToSort)
+    public void Init(SortManager sortManager, int sortIndex, ValueVisualiser[] valuesToSort)
     {
         _sortManager = sortManager;
         _sortIndex = sortIndex;
@@ -31,7 +31,7 @@ public class SortingAlgorithm : MonoBehaviour
 
     protected virtual void SwapTwoElementsByIndex(int a, int b)
     {
-        ValueVisualBehavior temp = _toSort[a];
+        ValueVisualiser temp = _toSort[a];
         _toSort[a] = _toSort[b];
         _toSort[b] = temp;
     }
