@@ -51,11 +51,13 @@ public class UIManager : MonoBehaviour
     public void ChangeSort1DropdownOption()
     {
         _sortManager.choosenSortTypes[0] = _sort1dropdown.value;
+        _sortManager.ClearValueVisualisers();
     }
 
     public void ChangeSort2DropdownOption()
     {
         _sortManager.choosenSortTypes[1] = _sort2dropdown.value;
+        _sortManager.ClearValueVisualisers();
     }
 
     public void ComparingTwoSortsUIChange()
@@ -67,6 +69,7 @@ public class UIManager : MonoBehaviour
             rt.anchoredPosition = new Vector2(rt.anchoredPosition.x, -110);
 
             _splitLine.gameObject.SetActive(true);
+            _startButton.gameObject.SetActive(false);
 
             _sortManager.isComparingSorts = true;
         }
@@ -77,9 +80,12 @@ public class UIManager : MonoBehaviour
             rt.anchoredPosition = new Vector2(rt.anchoredPosition.x, -70);
 
             _splitLine.gameObject.SetActive(false);
+            _startButton.gameObject.SetActive(true);
 
             _sortManager.isComparingSorts = false;
         }
+
+        _sortManager.ClearValueVisualisers();
     }
 
     public void StartSortingButton()

@@ -45,6 +45,5 @@ public class CocktailShakerSortOptimized : SortingAlgorithm
         ColorArea(boundBot, boundTop, Color.green);
 
         _sortManager.SortFinished(_sortIndex);
-        _sortManager.StartSorting();
     }
 }
