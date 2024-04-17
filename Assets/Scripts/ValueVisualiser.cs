@@ -7,9 +7,11 @@ public class ValueVisualiser : MonoBehaviour
     public int visualiserValue = 1;
 
     [SerializeField] SpriteRenderer _renderer;
+    Color _previousColor;
 
     private void Start()
     {
+        _previousColor=_renderer.color;
         transform.localScale = new Vector3(transform.localScale.x, visualiserValue/10f, transform.localScale.y);
         transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + (visualiserValue / 20f), transform.localPosition.z);
     }
@@ -32,6 +34,7 @@ public class ValueVisualiser : MonoBehaviour
 
     public void ChangeColor(Color color, float time)
     {
+        _renderer.color = _previousColor;
         StartCoroutine(TimedColorChange(color, time));
     }
 

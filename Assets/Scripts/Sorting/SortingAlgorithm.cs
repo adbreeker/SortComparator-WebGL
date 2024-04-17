@@ -53,4 +53,22 @@ public class SortingAlgorithm : MonoBehaviour
             }
         }
     }
+
+    protected virtual void ColorArea(int indexFrom, int indexTo, Color color, float time)
+    {
+        if (indexFrom < indexTo)
+        {
+            for (int i = indexFrom; i <= indexTo; i++)
+            {
+                _toSort[i].ChangeColor(color, time);
+            }
+        }
+        else
+        {
+            for (int i = indexFrom; i >= indexTo; i--)
+            {
+                _toSort[i].ChangeColor(color, time);
+            }
+        }
+    }
 }

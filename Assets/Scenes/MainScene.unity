@@ -1400,6 +1400,12 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Cocktail Shaker Sort Optimized
       m_Image: {fileID: 0}
+    - m_Text: Bubble Sort
+      m_Image: {fileID: 0}
+    - m_Text: Bubble Sort Optimized
+      m_Image: {fileID: 0}
+    - m_Text: Shell Sort
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2844,6 +2850,9 @@ GameObject:
   - component: {fileID: 1404460033}
   - component: {fileID: 1404460037}
   - component: {fileID: 1404460036}
+  - component: {fileID: 1404460038}
+  - component: {fileID: 1404460039}
+  - component: {fileID: 1404460040}
   m_Layer: 0
   m_Name: SortManager
   m_TagString: Untagged
@@ -2935,6 +2944,9 @@ MonoBehaviour:
   - {fileID: 1404460033}
   - {fileID: 1404460037}
   - {fileID: 1404460036}
+  - {fileID: 1404460038}
+  - {fileID: 1404460039}
+  - {fileID: 1404460040}
 --- !u!114 &1404460036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2957,6 +2969,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d677faa891981d747b5f7726c40f6e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1404460038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404460030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b541d776245eadc498be26541a6bca83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1404460039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404460030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619cc594932dd78499bbaea157cd407b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1404460040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404460030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49481401b4db394b973dd67f31c0e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1439729716
@@ -4440,6 +4488,12 @@ MonoBehaviour:
     - m_Text: Cocktail Shaker Sort
       m_Image: {fileID: 0}
     - m_Text: Cocktail Shaker Sort Optimized
+      m_Image: {fileID: 0}
+    - m_Text: Bubble Sort
+      m_Image: {fileID: 0}
+    - m_Text: Bubble Sort Optimized
+      m_Image: {fileID: 0}
+    - m_Text: Shell Sort
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:

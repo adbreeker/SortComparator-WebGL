@@ -25,6 +25,7 @@ public class InsertionSort : SortingAlgorithm
                 if (i == _valueCount - 1) { _toSort[j].ChangeColor(Color.green); }
                 j--;
             }
+            if (i != _valueCount - 1) { ColorArea(0, i, Color.yellow); }
         }
 
         ColorArea(j, 0, Color.green);

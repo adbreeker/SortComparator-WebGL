@@ -98,7 +98,7 @@ public class SortManager : MonoBehaviour
             {
                 float xPos = _startX + (i * 0.03f);
 
-                sortingValues1[i] = Instantiate(valueVisualPrefab, new Vector3(xPos, 0f, 0f), Quaternion.identity, valuesHolderCompare1).GetComponent<ValueVisualiser>();
+                sortingValues1[i] = Instantiate(valueVisualPrefab, new Vector3(xPos, 0.06f, 0f), Quaternion.identity, valuesHolderCompare1).GetComponent<ValueVisualiser>();
                 sortingValues1[i].visualiserValue = Random.Range(1, 101);
                 sortingValues2[i] = Instantiate(valueVisualPrefab, new Vector3(xPos, -5f, 0f), Quaternion.identity, valuesHolderCompare2).GetComponent<ValueVisualiser>();
                 sortingValues2[i].visualiserValue = sortingValues1[i].visualiserValue;
