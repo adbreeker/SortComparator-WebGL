@@ -1398,6 +1398,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Gnome Sort
       m_Image: {fileID: 0}
+    - m_Text: Heap Sort
+      m_Image: {fileID: 0}
     - m_Text: Insertion Sort
       m_Image: {fileID: 0}
     - m_Text: Selection Sort
@@ -2850,6 +2852,7 @@ GameObject:
   - component: {fileID: 1404460038}
   - component: {fileID: 1404460040}
   - component: {fileID: 1404460041}
+  - component: {fileID: 1404460042}
   m_Layer: 0
   m_Name: SortManager
   m_TagString: Untagged
@@ -2940,6 +2943,7 @@ MonoBehaviour:
   - {fileID: 1404460038}
   - {fileID: 1404460037}
   - {fileID: 1404460041}
+  - {fileID: 1404460042}
   - {fileID: 1404460033}
   - {fileID: 1404460034}
   - {fileID: 1404460040}
@@ -2989,6 +2993,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac3fb40997a33974a84022fb4fcf1ba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1404460042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404460030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c989af6963cf0644adde9a1fcadc48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1439729716
@@ -4470,6 +4486,8 @@ MonoBehaviour:
     - m_Text: Cocktail Shaker Sort
       m_Image: {fileID: 0}
     - m_Text: Gnome Sort
+      m_Image: {fileID: 0}
+    - m_Text: Heap Sort
       m_Image: {fileID: 0}
     - m_Text: Insertion Sort
       m_Image: {fileID: 0}
