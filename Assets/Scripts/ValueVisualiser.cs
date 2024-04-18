@@ -26,6 +26,17 @@ public class ValueVisualiser : MonoBehaviour
         return a.visualiserValue > b.visualiserValue;
     }
 
+    public static bool operator >=(ValueVisualiser a, ValueVisualiser b)
+    {
+        return a.visualiserValue >= b.visualiserValue;
+    }
+
+    public static bool operator <=(ValueVisualiser a, ValueVisualiser b)
+    {
+        return a.visualiserValue <= b.visualiserValue;
+    }
+
+
     public void ChangeColor(Color color)
     {
         StopAllCoroutines();

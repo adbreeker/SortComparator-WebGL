@@ -1392,17 +1392,15 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Selection Sort
-      m_Image: {fileID: 0}
-    - m_Text: Insertion Sort
+    - m_Text: Bubble Sort
       m_Image: {fileID: 0}
     - m_Text: Cocktail Shaker Sort
       m_Image: {fileID: 0}
-    - m_Text: Cocktail Shaker Sort Optimized
+    - m_Text: Gnome Sort
       m_Image: {fileID: 0}
-    - m_Text: Bubble Sort
+    - m_Text: Insertion Sort
       m_Image: {fileID: 0}
-    - m_Text: Bubble Sort Optimized
+    - m_Text: Selection Sort
       m_Image: {fileID: 0}
     - m_Text: Shell Sort
       m_Image: {fileID: 0}
@@ -1860,7 +1858,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Selection Sort
+  m_text: Bubble Sort
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2849,10 +2847,9 @@ GameObject:
   - component: {fileID: 1404460034}
   - component: {fileID: 1404460033}
   - component: {fileID: 1404460037}
-  - component: {fileID: 1404460036}
   - component: {fileID: 1404460038}
-  - component: {fileID: 1404460039}
   - component: {fileID: 1404460040}
+  - component: {fileID: 1404460041}
   m_Layer: 0
   m_Name: SortManager
   m_TagString: Untagged
@@ -2940,25 +2937,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortingAlgorithms:
-  - {fileID: 1404460034}
-  - {fileID: 1404460033}
-  - {fileID: 1404460037}
-  - {fileID: 1404460036}
   - {fileID: 1404460038}
-  - {fileID: 1404460039}
+  - {fileID: 1404460037}
+  - {fileID: 1404460041}
+  - {fileID: 1404460033}
+  - {fileID: 1404460034}
   - {fileID: 1404460040}
---- !u!114 &1404460036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404460030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f979c59c309258a418945068a1834cf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1404460037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2983,18 +2967,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b541d776245eadc498be26541a6bca83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1404460039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404460030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 619cc594932dd78499bbaea157cd407b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1404460040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3005,6 +2977,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e49481401b4db394b973dd67f31c0e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1404460041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404460030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac3fb40997a33974a84022fb4fcf1ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1439729716
@@ -3064,7 +3048,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Selection Sort
+  m_text: Bubble Sort
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4481,17 +4465,15 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Selection Sort
-      m_Image: {fileID: 0}
-    - m_Text: Insertion Sort
+    - m_Text: Bubble Sort
       m_Image: {fileID: 0}
     - m_Text: Cocktail Shaker Sort
       m_Image: {fileID: 0}
-    - m_Text: Cocktail Shaker Sort Optimized
+    - m_Text: Gnome Sort
       m_Image: {fileID: 0}
-    - m_Text: Bubble Sort
+    - m_Text: Insertion Sort
       m_Image: {fileID: 0}
-    - m_Text: Bubble Sort Optimized
+    - m_Text: Selection Sort
       m_Image: {fileID: 0}
     - m_Text: Shell Sort
       m_Image: {fileID: 0}

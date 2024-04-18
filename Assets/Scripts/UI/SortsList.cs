@@ -31,6 +31,7 @@ public class SortsList : MonoBehaviour
 #if UNITY_EDITOR
     private void OnValidate()
     {
+        sortingAlgorithms.Sort((x, y) => x.GetType().Name.CompareTo(y.GetType().Name));
         FindObjectOfType<UIManager>().SetSortsDropdownsOptions(GetSortsNames());
         //foreach(string name in GetSortsNames()) { Debug.Log(name); }
     }
