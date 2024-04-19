@@ -1402,6 +1402,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Insertion Sort
       m_Image: {fileID: 0}
+    - m_Text: Quick Sort
+      m_Image: {fileID: 0}
     - m_Text: Selection Sort
       m_Image: {fileID: 0}
     - m_Text: Shell Sort
@@ -2208,7 +2210,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 18
   m_Viewport: {fileID: 620454591}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 778135294}
@@ -2352,7 +2354,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 18
   m_Viewport: {fileID: 427547174}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 522987001}
@@ -2853,6 +2855,7 @@ GameObject:
   - component: {fileID: 1404460040}
   - component: {fileID: 1404460041}
   - component: {fileID: 1404460042}
+  - component: {fileID: 1404460043}
   m_Layer: 0
   m_Name: SortManager
   m_TagString: Untagged
@@ -2945,6 +2948,7 @@ MonoBehaviour:
   - {fileID: 1404460041}
   - {fileID: 1404460042}
   - {fileID: 1404460033}
+  - {fileID: 1404460043}
   - {fileID: 1404460034}
   - {fileID: 1404460040}
 --- !u!114 &1404460037
@@ -3005,6 +3009,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c989af6963cf0644adde9a1fcadc48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1404460043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404460030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18df8ca81e0b87a4693a11bf876c24fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1439729716
@@ -4490,6 +4506,8 @@ MonoBehaviour:
     - m_Text: Heap Sort
       m_Image: {fileID: 0}
     - m_Text: Insertion Sort
+      m_Image: {fileID: 0}
+    - m_Text: Quick Sort
       m_Image: {fileID: 0}
     - m_Text: Selection Sort
       m_Image: {fileID: 0}
