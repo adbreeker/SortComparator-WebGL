@@ -1392,6 +1392,8 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+    - m_Text: Block Sort
+      m_Image: {fileID: 0}
     - m_Text: Bubble Sort
       m_Image: {fileID: 0}
     - m_Text: Cocktail Shaker Sort
@@ -1862,7 +1864,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bubble Sort
+  m_text: Block Sort
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2856,6 +2858,7 @@ GameObject:
   - component: {fileID: 1404460041}
   - component: {fileID: 1404460042}
   - component: {fileID: 1404460043}
+  - component: {fileID: 1404460044}
   m_Layer: 0
   m_Name: SortManager
   m_TagString: Untagged
@@ -2943,6 +2946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortingAlgorithms:
+  - {fileID: 1404460044}
   - {fileID: 1404460038}
   - {fileID: 1404460037}
   - {fileID: 1404460041}
@@ -3023,6 +3027,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18df8ca81e0b87a4693a11bf876c24fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1404460044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404460030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3b6dbd3a146db449133bddb8376085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1439729716
 GameObject:
   m_ObjectHideFlags: 0
@@ -3080,7 +3096,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bubble Sort
+  m_text: Block Sort
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4497,6 +4513,8 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+    - m_Text: Block Sort
+      m_Image: {fileID: 0}
     - m_Text: Bubble Sort
       m_Image: {fileID: 0}
     - m_Text: Cocktail Shaker Sort
