@@ -9,7 +9,6 @@ public class QuickSort : SortingAlgorithm
     protected override IEnumerator SortingCoroutine()
     {
         yield return StartCoroutine(QuickSortCoroutine(0, _toSort.Length - 1));
-        //ColorArea(0, _valueCount - 1, Color.green);
         _sortManager.SortFinished(_sortIndex);
     }
 

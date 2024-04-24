@@ -51,15 +51,17 @@ public class BlockSort : SortingAlgorithm
         {
             yield return new WaitForFixedUpdate();
             ValueVisualiser current = _toSort[i];
-            int j = i - 1;
-            while (j >= start && _toSort[j] > current)
+            int j = i;
+            while (j > start && _toSort[j-1] > _toSort[j])
             {
                 yield return new WaitForFixedUpdate();
-                _toSort[j + 1] = _toSort[j];
+                _toSort[j].ChangeColor(Color.red, 0);
+                SwapTwoElementsByIndex(j - 1, j);
                 j--;
             }
-            _toSort[j + 1] = current;
+            ColorArea(j, i, Color.yellow);
         }
+        ColorArea(start, end - 1, Color.white);
     }
 
     IEnumerator Rotate(int d, int start, int end)
@@ -92,16 +94,18 @@ public class BlockSort : SortingAlgorithm
         ValueVisualiser[] leftArray = new ValueVisualiser[n1];
         ValueVisualiser[] rightArray = new ValueVisualiser[n2];
 
+        ColorArea(start, end - 1, Color.yellow);
+
         for (int i = 0; i < n1; i++)
         {
-            yield return new WaitForFixedUpdate();
+            //yield return new WaitForFixedUpdate();
             leftArray[i] = _toSort[start + i];
         }
            
 
         for (int j = 0; j < n2; j++)
         {
-            yield return new WaitForFixedUpdate();
+            //yield return new WaitForFixedUpdate();
             rightArray[j] = _toSort[mid + j];
         }
             
@@ -129,7 +133,9 @@ public class BlockSort : SortingAlgorithm
             yield return new WaitForFixedUpdate();
             _toSort[k++] = rightArray[y++];
         }
-            
+
+        ColorArea(start, end - 1, Color.white);
+
     }
 
     int FloorPowerOfTwo(int num)
