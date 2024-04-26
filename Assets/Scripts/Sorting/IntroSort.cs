@@ -10,99 +10,119 @@ public class IntroSort : SortingAlgorithm
     protected override IEnumerator SortingCoroutine()
     {
         int maxDepth = Mathf.FloorToInt(Mathf.Log(_valueCount, 2)) * 2;
-        yield return StartCoroutine(IntroSortCoroutine(_toSort, 0, _valueCount - 1, maxDepth));
-        ColorArea(0, _valueCount - 1, Color.green);
+        yield return StartCoroutine(Introsort(_toSort, maxDepth));
         _sortManager.SortFinished(_sortIndex);
     }
 
-    IEnumerator IntroSortCoroutine(ValueVisualiser[] array, int startIndex, int endIndex, int maxDepth)
+    IEnumerator Introsort(ValueVisualiser[] array, int maxDepth)
     {
-        int n = endIndex - startIndex + 1;
-        if (n < 16)
+        yield return StartCoroutine(IntrosortRecursive(array, maxDepth, 0, array.Length - 1));
+    }
+
+    IEnumerator IntrosortRecursive(ValueVisualiser[] array, int maxDepth, int low, int high)
+    {
+        yield return new WaitForFixedUpdate();
+
+        int n = high - low + 1;
+
+        if (n <= 16)
         {
-            yield return StartCoroutine(InsertionSortCoroutine(array, startIndex, endIndex));
+            if (low > 0) { _toSort[low - 1].ChangeColor(Color.green); }
+            yield return StartCoroutine(InsertionSort(low, high));
         }
         else if (maxDepth == 0)
         {
-            yield return StartCoroutine(HeapSortCoroutine(array, startIndex, endIndex));
+            Time.timeScale = 0.01f;
+            yield return StartCoroutine(HeapSort(array, low, high));
         }
         else
         {
-            yield return StartCoroutine(Partition(startIndex, endIndex));
+            yield return StartCoroutine(Partition(array, low, high));
 
             int partitionIndexTemp = partitionIndex;
 
-            yield return StartCoroutine(IntroSortCoroutine(array, startIndex, partitionIndexTemp - 1, maxDepth - 1));
-            yield return StartCoroutine(IntroSortCoroutine(array, partitionIndexTemp + 1, endIndex, maxDepth - 1));
+            yield return StartCoroutine(IntrosortRecursive(array, maxDepth - 1, low, partitionIndexTemp - 1));
+            yield return StartCoroutine(IntrosortRecursive(array, maxDepth - 1, partitionIndexTemp + 1, high));
         }
     }
 
-    IEnumerator InsertionSortCoroutine(ValueVisualiser[] array, int startIndex, int endIndex)
+    IEnumerator InsertionSort(int start, int end)
     {
-        for (int i = startIndex + 1; i <= endIndex; i++)
+        _toSort[start].ChangeColor(Color.yellow);
+
+        for (int i = start + 1; i <= end; i++)
         {
-            ValueVisualiser key = array[i];
-            int j = i - 1;
-            while (j >= startIndex && array[j] > key)
+            yield return new WaitForFixedUpdate();
+            int j = i;
+            while (j > start && _toSort[j - 1] > _toSort[j])
             {
-                array[j + 1] = array[j];
-                j = j - 1;
+                yield return new WaitForFixedUpdate();
+                _toSort[j].ChangeColor(Color.red, 0);
+                SwapTwoElementsByIndex(j - 1, j);
+                j--;
             }
-            array[j + 1] = key;
-            yield return null; // Yield null for one frame to visualize each step
+            ColorArea(j, i, Color.yellow);
+        }
+
+        ColorArea(start, end, Color.green);
+    }
+
+    IEnumerator HeapSort(ValueVisualiser[] array, int low, int high)
+    {
+        int count = high - low + 1;
+        yield return StartCoroutine(Heapify(array, low, count));
+
+        int end = high;
+        while (end > low)
+        {
+            yield return new WaitForFixedUpdate();
+            SwapTwoElementsByIndex(low, end);
+            array[end].ChangeColor(Color.green);
+            yield return StartCoroutine(SiftDown(array, low, end, low));
+            end--;
+        }
+        array[low].ChangeColor(Color.green);
+    }
+
+    IEnumerator Heapify(ValueVisualiser[] array, int low, int count)
+    {
+        int start = Parent(count - 1) + low + 1;
+
+        while (start > low)
+        {
+            yield return new WaitForFixedUpdate();
+            start--;
+            yield return StartCoroutine(SiftDown(array, start, low + count, low));
         }
     }
 
-    IEnumerator HeapSortCoroutine(ValueVisualiser[] array, int startIndex, int endIndex)
+    IEnumerator SiftDown(ValueVisualiser[] array, int root, int end, int low)
     {
-        int n = endIndex - startIndex + 1;
-
-        for (int i = n / 2 - 1; i >= startIndex; i--)
+        while (LeftChild(root - low) < end - low)
         {
-            yield return StartCoroutine(Heapify(array, n, i, startIndex));
-        }
+            yield return new WaitForFixedUpdate();
 
-        for (int i = n - 1; i >= startIndex; i--)
-        {
-            ValueVisualiser temp = array[startIndex];
-            array[startIndex] = array[startIndex + i];
-            array[startIndex + i] = temp;
+            int child = LeftChild(root - low) + low;
+            ColorArea(root, child, Color.yellow, 0);
+            if (child + 1 < end && array[child] < array[child + 1]) { child++; }
 
-            yield return StartCoroutine(Heapify(array, i, startIndex, startIndex));
+            if (array[root] < array[child])
+            {
+                array[root].ChangeColor(Color.red, 0);
+                array[child].ChangeColor(Color.red, 0);
+                SwapTwoElementsByIndex(root, child);
+                root = child;
+            }
+            else
+            {
+                yield break;
+            }
         }
     }
 
-    IEnumerator Heapify(ValueVisualiser[] array, int n, int i, int startIndex)
+    IEnumerator Partition(ValueVisualiser[] array, int low, int high)
     {
-        int largest = i;
-        int left = 2 * i + 1;
-        int right = 2 * i + 2;
-
-        if (left < n && array[startIndex + left] > array[startIndex + largest])
-        {
-            largest = left;
-        }
-
-        if (right < n && array[startIndex + right] > array[startIndex + largest])
-        {
-            largest = right;
-        }
-
-        if (largest != i)
-        {
-            ValueVisualiser temp = array[startIndex + i];
-            array[startIndex + i] = array[startIndex + largest];
-            array[startIndex + largest] = temp;
-
-            yield return null; // Yield null for one frame to visualize each step
-
-            yield return StartCoroutine(Heapify(array, n, largest, startIndex));
-        }
-    }
-
-    IEnumerator Partition(int low, int high)
-    {
-        ValueVisualiser pivot = _toSort[high];
+        ValueVisualiser pivot = array[high];
         pivot.ChangeColor(Color.red, 0);
         int i = low - 1;
 
@@ -110,19 +130,29 @@ public class IntroSort : SortingAlgorithm
         {
             yield return new WaitForFixedUpdate();
             pivot.ChangeColor(Color.red, 0);
-            if (_toSort[j] < pivot)
+            if (array[j] < pivot)
             {
                 i++;
                 ColorArea(i, j, Color.yellow, 0);
-                _toSort[j].ChangeColor(Color.red, 0);
-                _toSort[i].ChangeColor(Color.red, 0);
+                array[j].ChangeColor(Color.red, 0);
+                array[i].ChangeColor(Color.red, 0);
                 SwapTwoElementsByIndex(i, j);
             }
         }
         yield return new WaitForFixedUpdate();
-        _toSort[i + 1].ChangeColor(Color.red, 0);
-        _toSort[high].ChangeColor(Color.red, 0);
+        array[i + 1].ChangeColor(Color.red, 0);
+        array[high].ChangeColor(Color.red, 0);
         SwapTwoElementsByIndex(i + 1, high);
         partitionIndex = i + 1;
+    }
+
+    private static int Parent(int i)
+    {
+        return (i - 1) / 2;
+    }
+
+    private static int LeftChild(int i)
+    {
+        return 2 * i + 1;
     }
 }

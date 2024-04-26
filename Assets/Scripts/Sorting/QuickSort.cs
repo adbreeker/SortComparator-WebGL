@@ -26,8 +26,7 @@ public class QuickSort : SortingAlgorithm
         }
         else
         {
-            if(high == _valueCount - 1) { _toSort[high].ChangeColor(Color.green); }
-            else { ColorArea(high + 1, low, Color.green); }
+            ColorArea(high + 1, low, Color.green);
         }
     }
 

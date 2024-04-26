@@ -40,6 +40,8 @@ public class SortingAlgorithm : MonoBehaviour
     {
         if (indexFrom < indexTo)
         {
+            if(indexFrom < 0) { indexFrom = 0; }
+            if(indexTo >= _toSort.Length) { indexTo = _toSort.Length - 1; }
             for (int i = indexFrom; i <=indexTo; i++)
             {
                 _toSort[i].ChangeColor(color);
@@ -47,6 +49,8 @@ public class SortingAlgorithm : MonoBehaviour
         }
         else
         {
+            if (indexTo < 0) { indexTo = 0; }
+            if (indexFrom >= _toSort.Length) { indexFrom = _toSort.Length - 1; }
             for (int i = indexFrom; i >= indexTo; i--)
             {
                 _toSort[i].ChangeColor(color);

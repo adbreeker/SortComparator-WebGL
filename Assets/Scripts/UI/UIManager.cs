@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        SetPlaySpeed();
+        
     }
 
     public void SetPlaySpeed()

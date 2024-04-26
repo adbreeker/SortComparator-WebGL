@@ -1406,6 +1406,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Intro Sort
       m_Image: {fileID: 0}
+    - m_Text: Merge Sort
+      m_Image: {fileID: 0}
     - m_Text: Quick Sort
       m_Image: {fileID: 0}
     - m_Text: Selection Sort
@@ -2862,6 +2864,7 @@ GameObject:
   - component: {fileID: 1404460043}
   - component: {fileID: 1404460044}
   - component: {fileID: 1404460045}
+  - component: {fileID: 1404460046}
   m_Layer: 0
   m_Name: SortManager
   m_TagString: Untagged
@@ -2956,6 +2959,7 @@ MonoBehaviour:
   - {fileID: 1404460042}
   - {fileID: 1404460033}
   - {fileID: 1404460045}
+  - {fileID: 1404460046}
   - {fileID: 1404460043}
   - {fileID: 1404460034}
   - {fileID: 1404460040}
@@ -3053,6 +3057,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d6c82e12a269fe40806be80756a60ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1404460046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404460030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0285b9e04dc417d4cacd1a5f48f4bfb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1439729716
@@ -4542,6 +4558,8 @@ MonoBehaviour:
     - m_Text: Insertion Sort
       m_Image: {fileID: 0}
     - m_Text: Intro Sort
+      m_Image: {fileID: 0}
+    - m_Text: Merge Sort
       m_Image: {fileID: 0}
     - m_Text: Quick Sort
       m_Image: {fileID: 0}

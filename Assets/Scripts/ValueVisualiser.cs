@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ValueVisualiser : MonoBehaviour
@@ -65,5 +66,20 @@ public class ValueVisualiser : MonoBehaviour
             yield return new WaitForSeconds(time);
             _renderer.color = previousColor;
         }
+    }
+}
+
+public class ValueVisualiserExtension
+{
+    public static bool IsSorted(ValueVisualiser[] arrayToCheck)
+    {
+        for(int i = 0; i<arrayToCheck.Length - 1; i++) 
+        {
+            if (arrayToCheck[i] > arrayToCheck[i + 1])
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

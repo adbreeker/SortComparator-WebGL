@@ -10,14 +10,14 @@ public class HeapSort : SortingAlgorithm
         int count = _valueCount;
         yield return StartCoroutine(Heapify(_toSort, count));
 
-        int end = _valueCount;
-        while(end > 1)
+        int end = _valueCount - 1;
+        while(end > 0)
         {
             yield return new WaitForFixedUpdate();
-            end--;
             SwapTwoElementsByIndex(end, 0);
             _toSort[end].ChangeColor(Color.green);
             yield return StartCoroutine(SiftDown(_toSort, 0, end));
+            end--;
         }
         _toSort[0].ChangeColor(Color.green);
         _sortManager.SortFinished(_sortIndex);

@@ -144,6 +144,7 @@ public class SortManager : MonoBehaviour
         if(!isComparingSorts && !isSort1OnGoing)
         {
             _uiManager.SortingFinished();
+            //if (ValueVisualiserExtension.IsSorted(sortingValues1)) {Debug.Log("Sorted"); StartSorting(); }
         }
     }
 }

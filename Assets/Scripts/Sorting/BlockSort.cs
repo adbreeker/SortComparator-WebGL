@@ -50,7 +50,6 @@ public class BlockSort : SortingAlgorithm
         for (int i = start + 1; i < end; i++)
         {
             yield return new WaitForFixedUpdate();
-            ValueVisualiser current = _toSort[i];
             int j = i;
             while (j > start && _toSort[j-1] > _toSort[j])
             {
@@ -98,14 +97,14 @@ public class BlockSort : SortingAlgorithm
 
         for (int i = 0; i < n1; i++)
         {
-            //yield return new WaitForFixedUpdate();
+            yield return new WaitForFixedUpdate();
             leftArray[i] = _toSort[start + i];
         }
            
 
         for (int j = 0; j < n2; j++)
         {
-            //yield return new WaitForFixedUpdate();
+            yield return new WaitForFixedUpdate();
             rightArray[j] = _toSort[mid + j];
         }
             
