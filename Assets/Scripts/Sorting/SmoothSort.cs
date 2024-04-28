@@ -10,7 +10,7 @@ public class SmoothSort : SortingAlgorithm
     {
         for (int i = 1; i < _valueCount; i++)
         {
-            yield return StartCoroutine(HeapifyCoroutine(i));
+            yield return StartCoroutine(Heapify(i));
         }
 
         for (int i = _valueCount - 1; i > 0; i--)
@@ -18,24 +18,27 @@ public class SmoothSort : SortingAlgorithm
             yield return new WaitForFixedUpdate();
             SwapTwoElementsByIndex(0, i);
             _toSort[i].ChangeColor(Color.green);
-            yield return StartCoroutine(SiftDownCoroutine(i, 0));
+            yield return StartCoroutine(SiftDown(i, 0));
         }
         _toSort[0].ChangeColor(Color.green);
         _sortManager.SortFinished(_sortIndex);
     }
 
-    IEnumerator HeapifyCoroutine(int i)
+    IEnumerator Heapify(int i)
     {
         yield return new WaitForFixedUpdate();
         while (i > 0 && _toSort[i] > _toSort[Parent(i)])
         {
             yield return new WaitForFixedUpdate();
+            ColorArea(i, Parent(i), Color.yellow, 0);
+            _toSort[i].ChangeColor(Color.red, 0);
+            _toSort[Parent(i)].ChangeColor(Color.red, 0);
             SwapTwoElementsByIndex(i, Parent(i));
             i = Parent(i);
         }
     }
 
-    IEnumerator SiftDownCoroutine(int n, int i)
+    IEnumerator SiftDown(int n, int i)
     {
         yield return new WaitForFixedUpdate();
 
@@ -49,8 +52,10 @@ public class SmoothSort : SortingAlgorithm
 
         if (i != maxIndex)
         {
+            _toSort[i].ChangeColor(Color.red, 0);
+            _toSort[maxIndex].ChangeColor(Color.red, 0);
             SwapTwoElementsByIndex(i, maxIndex);
-            yield return StartCoroutine(SiftDownCoroutine(n, maxIndex));
+            yield return StartCoroutine(SiftDown(n, maxIndex));
         }
     }
 

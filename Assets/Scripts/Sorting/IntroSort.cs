@@ -10,13 +10,8 @@ public class IntroSort : SortingAlgorithm
     protected override IEnumerator SortingCoroutine()
     {
         int maxDepth = Mathf.FloorToInt(Mathf.Log(_valueCount, 2)) * 2;
-        yield return StartCoroutine(Introsort(_toSort, maxDepth));
+        yield return StartCoroutine(IntrosortRecursive(_toSort, maxDepth, 0, _valueCount - 1));
         _sortManager.SortFinished(_sortIndex);
-    }
-
-    IEnumerator Introsort(ValueVisualiser[] array, int maxDepth)
-    {
-        yield return StartCoroutine(IntrosortRecursive(array, maxDepth, 0, array.Length - 1));
     }
 
     IEnumerator IntrosortRecursive(ValueVisualiser[] array, int maxDepth, int low, int high)

@@ -26,7 +26,6 @@ public class ShellSort : SortingAlgorithm
                 }
                 _toSort[j] = temp;
             }
-
         }
         ColorArea(0, _valueCount - 1, Color.green);
         _sortManager.SortFinished(_sortIndex);

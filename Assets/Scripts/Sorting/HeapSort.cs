@@ -7,8 +7,7 @@ public class HeapSort : SortingAlgorithm
 {
     protected override IEnumerator SortingCoroutine()
     {
-        int count = _valueCount;
-        yield return StartCoroutine(Heapify(_toSort, count));
+        yield return StartCoroutine(Heapify(_toSort, _valueCount));
 
         int end = _valueCount - 1;
         while(end > 0)
@@ -25,11 +24,11 @@ public class HeapSort : SortingAlgorithm
 
     IEnumerator Heapify(ValueVisualiser[] array, int count)
     {
+        yield return new WaitForFixedUpdate();
         int start = Parent(count - 1) + 1;
 
         while (start > 0)
         {
-            yield return new WaitForFixedUpdate();
             start--;
             yield return StartCoroutine(SiftDown(array, start, count));
         }
@@ -37,6 +36,8 @@ public class HeapSort : SortingAlgorithm
 
     IEnumerator SiftDown(ValueVisualiser[] array, int root, int end)
     {
+        yield return new WaitForFixedUpdate();
+
         while (LeftChild(root) < end)
         {
             yield return new WaitForFixedUpdate();
