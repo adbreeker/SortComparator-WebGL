@@ -1414,6 +1414,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Shell Sort
       m_Image: {fileID: 0}
+    - m_Text: Smooth Sort
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2865,6 +2867,7 @@ GameObject:
   - component: {fileID: 1404460044}
   - component: {fileID: 1404460045}
   - component: {fileID: 1404460046}
+  - component: {fileID: 1404460047}
   m_Layer: 0
   m_Name: SortManager
   m_TagString: Untagged
@@ -2963,6 +2966,7 @@ MonoBehaviour:
   - {fileID: 1404460043}
   - {fileID: 1404460034}
   - {fileID: 1404460040}
+  - {fileID: 1404460047}
 --- !u!114 &1404460037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3069,6 +3073,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0285b9e04dc417d4cacd1a5f48f4bfb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1404460047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404460030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0a2649fb1bb4404ba532dcb7066a0c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1439729716
@@ -4566,6 +4582,8 @@ MonoBehaviour:
     - m_Text: Selection Sort
       m_Image: {fileID: 0}
     - m_Text: Shell Sort
+      m_Image: {fileID: 0}
+    - m_Text: Smooth Sort
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
